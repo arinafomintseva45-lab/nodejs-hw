@@ -10,5 +10,13 @@ export default [
         ...globals.node,
       },
     },
+    rules: {
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
   },
 ];
