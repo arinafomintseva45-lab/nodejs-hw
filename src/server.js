@@ -37,7 +37,7 @@ app.use(authRoutes);
 
 app.use(notesRoutes);
 
-app.use('/users', userRoutes);
+app.use(userRoutes);
 
 
 app.use(notFoundHandler);

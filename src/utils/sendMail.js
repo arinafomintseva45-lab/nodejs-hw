@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer';
 
-
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
@@ -10,16 +9,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
-export const sendEmail = async ({
-  to,
-  subject,
-  html,
-}) => {
-  await transporter.sendMail({
-    from: process.env.SMTP_FROM,
-    to,
-    subject,
-    html,
-  });
+export const sendEmail = async (options) => {
+  return transporter.sendMail(options);
 };
