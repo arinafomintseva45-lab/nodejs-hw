@@ -5,7 +5,6 @@ import cors from 'cors';
 import { errors } from 'celebrate';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
-
 import notesRoutes from './routes/notesRoutes.js';
 
 import { logger } from './middleware/logger.js';
@@ -26,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use('/notes', notesRoutes);
+app.use(notesRoutes);
 
 
 app.use(notFoundHandler);
@@ -34,7 +33,6 @@ app.use(notFoundHandler);
 app.use(errors());
 
 app.use(errorHandler);
-
 
 
 const PORT = process.env.PORT || 3000;
