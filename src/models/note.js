@@ -11,20 +11,17 @@ const noteSchema = new Schema(
       trim: true,
     },
 
-
     content: {
       type: String,
       default: '',
       trim: true,
     },
 
-
     tag: {
       type: String,
       enum: TAGS,
       default: 'Todo',
     },
-
 
     userId: {
       type: Schema.Types.ObjectId,
@@ -41,6 +38,7 @@ const noteSchema = new Schema(
 
 noteSchema.index({
   tag: 1,
+  userId: 1,
 });
 
 

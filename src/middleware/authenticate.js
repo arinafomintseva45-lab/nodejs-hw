@@ -9,10 +9,13 @@ export const authenticate = async (
   res,
   next
 ) => {
-  const { accessToken } = req.cookies;
+  const {
+    accessToken,
+    sessionId,
+  } = req.cookies;
 
 
-  if (!accessToken) {
+  if (!accessToken || !sessionId) {
     throw createHttpError(
       401,
       'Missing access token'
@@ -21,6 +24,7 @@ export const authenticate = async (
 
 
   const session = await Session.findOne({
+    _id: sessionId,
     accessToken,
   });
 
